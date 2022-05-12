@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto+Slab:wght@300&display=swap");
 
+:root {
+  --primary-color: #ff7f50;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -36,10 +40,17 @@ img {
   width: 100%;
 }
 
+/* Navbar */
+
 .navbar {
   background-color: #000;
   color: #fff;
   height: 70px;
+}
+
+.navbar h1 {
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .navbar ul {
@@ -53,13 +64,67 @@ img {
 }
 
 .navbar a:hover {
-  border-bottom: 2px #ff7f50 solid;
-  color: #ff7f50;
+  border-bottom: 2px var(--primary-color) solid;
+  color: var(--primary-color);
 }
 
 .navbar .flex {
   justify-content: space-between;
 }
+
+/* Showcase */
+
+.showcase {
+  border-top: 3px #fff solid;
+  height: 500px;
+  background-color: #000;
+  color: #fff;
+  position: relative;
+}
+
+.showcase h1 {
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.showcase p {
+  margin: 40px 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.grid {
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex .btn {
+  margin-right: 20px;
+}
+
+.showcase::before,
+.showcase::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+  bottom: -70px;
+  right: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transform: skewY(-2deg);
+  -webkit-transform: skewY(-2deg);
+  -moz-transform: skewY(-2deg);
+  -ms-transform: skewY(-2deg);
+}
+
+/* Utilities */
 
 .container {
   max-width: 1100px;
@@ -73,4 +138,19 @@ img {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  background-color: #000;
+  border: 2px var(--primary-color) solid;
 }
