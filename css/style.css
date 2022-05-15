@@ -4,7 +4,10 @@
   --primary-color: #ff7f50;
   --secondary-color: #ff4400;
   --dark-color: #461503;
-  --light-color: #f4f4f4;
+  --light-color: #f4f4f41b;
+  --dim-color: rgba(204, 204, 204, 0.827);
+  --success-color: #5cb85c;
+  --error-color: #d9534f;
 }
 
 * {
@@ -41,6 +44,13 @@ P {
 
 img {
   width: 100%;
+}
+
+code,
+pre {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
 
 /* Navbar */
@@ -85,6 +95,10 @@ img {
   position: relative;
 }
 
+.showcase-text a {
+  animation: slideInFromRight 1s ease-in;
+}
+
 .showcase h1 {
   font-size: 50px;
   font-weight: 700;
@@ -93,12 +107,14 @@ img {
   margin-bottom: 40px;
   margin-top: 70px;
   text-align: center;
+  animation: slideInFromLeft 1s ease-in;
 }
 
 .showcase p {
   margin: 40px 0;
   font-size: 20px;
   text-align: center;
+  animation: slideInFromLeft 1s ease-in;
 }
 
 .flex .btn {
@@ -160,11 +176,12 @@ img {
 
 /* Sponsors */
 
-.card {
+.card,
+.card-1 {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  height: 150px;
+  height: minmax(150px, 200px);
   width: 200px;
   overflow: hidden;
   padding: 20px;
@@ -249,17 +266,87 @@ img {
   grid-column: 1 / span 2;
 }
 
+/* Documentation */
+
+.card-1 {
+  height: auto;
+  width: auto;
+}
+
+.bg-light {
+  background-color: var(--dim-color);
+}
+
+.docs-main .grid {
+  grid-gap: 30px;
+  grid-template-columns: 1fr 2fr;
+  align-items: flex-start;
+}
+
+.card-1 h3,
+.card-1 h2 {
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.docs-main nav li {
+  font-size: 17px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #333;
+}
+
 /* Footer */
 
 .social a {
   margin: 0 10px;
 }
 
+/* Animation */
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 /* Tablets and under */
 
 @media (max-width: 768px) {
   .grid-3,
-  .grid-2 {
+  .grid-2,
+  .features-main .grid,
+  .docs-main .grid {
     grid-template-columns: 1fr;
   }
 
@@ -285,6 +372,19 @@ img {
 
   .lg {
     font-size: 2em;
+  }
+
+  .features-main .grid-3 .card {
+    grid-column: 1 / span 3;
+  }
+
+  .features-head,
+  .features-sub-head {
+    text-align: center;
+  }
+
+  .card {
+    height: auto;
   }
 }
 
